@@ -20,7 +20,7 @@ function App() {
 
   return (
    <div className="App">
-     <button className="button" onClick={()=>changeNameHandler('Chelyn Hermosilla')}>Change Name</button>
+     <button className="button" onClick={()=>changeNameHandler('Chelyn Hermosilla')}>Toggle Show/Hide</button>
      <Card
       avatar='http://placeimg.com/640/480/people'
       name={name}
