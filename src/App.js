@@ -20,7 +20,7 @@ function App() {
   return (
    <div className="App">
      <button className="button" onClick={toggleShowCard}>Toggle Show/Hide</button>
-     {showCard ?
+     {showCard &&
       <Card
         avatar='http://placeimg.com/640/480/people'
         name={name}
@@ -29,7 +29,8 @@ function App() {
         onChangeInput={changeInputHandler}
       >
         {buttonsMarkup}
-      </Card>:null}
+      </Card>
+    }
    </div>
   );
 }
