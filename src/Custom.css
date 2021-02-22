@@ -1,0 +1,13 @@
+.innerdiv {
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  border: 3px solid black;
+  background-color: #73AD21;
+  padding: 70px 0;
+}
+
+.outerdiv {
+padding:70px 0;
+background-color: red;
+}
