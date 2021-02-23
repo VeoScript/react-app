@@ -31,6 +31,16 @@ function App() {
     cards_copy.splice(cardIndex, 1)
     setCards(cards_copy)
   }
+  const changedNameHandler = (event, id) => {
+    //1. Which Card
+    const cardIndex = cards.findIndex(card => card.id == id)
+    //2. Make a copy of the Cards
+    const cards_copy = [...cards]
+    //3. Changed the name of the specific card
+    cards_copy[cardIndex].name = event.target.value
+    //4. Set the cards with the latest version of card copy
+    setCards(cards_copy)
+  }
 
   const cardsMarkup = (
     cards.map((card, index) =>
@@ -41,6 +51,7 @@ function App() {
         title={card.title}
         key={card.id}
         onDelete={()=>deleteCardHandler(index)}
+        onChangeName={(event)=>changedNameHandler(event, card.id)}
       />
     )
   )
