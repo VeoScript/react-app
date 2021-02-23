@@ -41,12 +41,14 @@ function App() {
     //4. Set the cards with the latest version of card copy
     setCards(cards_copy)
   }
-  const buttonStyle = {
-    backgroundColor: null
-  }
+  // const buttonStyle = {
+  //   backgroundColor: null
+  // }
 
-  if(cards.length < 3) buttonStyle.backgroundColor = 'lightpink';
-  if(cards.length < 2) buttonStyle.backgroundColor = 'red';
+  const classes = ['button']
+
+  if(cards.length < 3) classes.push('pink')
+  if(cards.length < 2) classes.push('red')
 
   const cardsMarkup = (
     cards.map((card, index) =>
@@ -63,7 +65,7 @@ function App() {
   )
   return (
    <div className="App">
-    <button className="button" style={buttonStyle} onClick={toggleShowCard}>Toggle Show/Hide</button>
+    <button className={classes.join(' ')} onClick={toggleShowCard}>Toggle Show/Hide</button>
     {cardsMarkup}
    </div>
   );
