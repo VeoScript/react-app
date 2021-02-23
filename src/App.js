@@ -6,16 +6,19 @@ import faker from 'faker';
 function App() {
   const [cards, setCards] = useState([
     {
+      id: 1,
       name: 'Magpakailan Tamad',
       title: 'Hindi Magbabago',
       avatar:'http://placeimg.com/640/480/people'
     },
     {
+      id: 2,
       name: 'Magpakailan Jakol',
       title: 'Sige Rag Lusi',
       avatar:'http://placeimg.com/640/480/people'
     },
     {
+      id: 3,
       name: 'Magpakailan Tamod',
       title: 'Pirme Pasirit',
       avatar:'http://placeimg.com/640/480/people'
@@ -36,6 +39,7 @@ function App() {
         avatar={card.avatar}
         name={card.name}
         title={card.title}
+        key={card.id}
         onDelete={()=>deleteCardHandler(index)}
       />
     )
