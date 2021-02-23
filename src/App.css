@@ -65,10 +65,10 @@
   cursor: pointer;
 }
 
-.button2 {
+.button-blue {
   background-color: #008cba;
 }
 
-.button3 {
+.button-red {
   background-color: #f44336;
 }

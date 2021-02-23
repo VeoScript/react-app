@@ -4,29 +4,34 @@ import Card from './Card';
 import faker from 'faker';
 
 function App() {
-
-  const [name, setName] = useState('Jerome Villaruel')
+  const [cards, setCards] = useState([
+    {
+      name: 'Magpakailan Tamad',
+      title: 'Hindi Magbabago',
+      avatar:'http://placeimg.com/640/480/people'
+    },
+    {
+      name: 'Magpakailan Jakol',
+      title: 'Sige Rag Lusi',
+      avatar:'http://placeimg.com/640/480/people'
+    },
+    {
+      name: 'Magpakailan Tamod',
+      title: 'Pirme Pasirit',
+      avatar:'http://placeimg.com/640/480/people'
+    }
+  ])
   const [showCard, setShowCard] = useState(true)
-  const changeNameHandler = name => setName(name)
-  const changeInputHandler = event => setName(event.target.value)
   const toggleShowCard = () => setShowCard(!showCard)
-  const buttonsMarkup = (
-    <div>
-      <button className="button button2">YES</button>
-      <button className="button button3">NO</button>
-    </div>
-  )
   const cardsMarkup = (
-    showCard &&
-    <Card
-      avatar='http://placeimg.com/640/480/people'
-      name={name}
-      title={faker.name.jobTitle()}
-      onChangedName={()=>changeNameHandler('Chelyn Hermosilla')}
-      onChangeInput={changeInputHandler}
-    >
-      {buttonsMarkup}
-    </Card>
+    cards.map(card=>
+      showCard &&
+      <Card
+        avatar={card.avatar}
+        name={card.name}
+        title={card.title}
+      />
+    )
   )
   return (
    <div className="App">
