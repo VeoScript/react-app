@@ -41,6 +41,12 @@ function App() {
     //4. Set the cards with the latest version of card copy
     setCards(cards_copy)
   }
+  const buttonStyle = {
+    backgroundColor: null
+  }
+
+  if(cards.length < 3) buttonStyle.backgroundColor = 'lightpink';
+  if(cards.length < 2) buttonStyle.backgroundColor = 'red';
 
   const cardsMarkup = (
     cards.map((card, index) =>
@@ -57,7 +63,7 @@ function App() {
   )
   return (
    <div className="App">
-    <button className="button" onClick={toggleShowCard}>Toggle Show/Hide</button>
+    <button className="button" style={buttonStyle} onClick={toggleShowCard}>Toggle Show/Hide</button>
     {cardsMarkup}
    </div>
   );
