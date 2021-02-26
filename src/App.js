@@ -11,6 +11,7 @@ const theme = {
 
 class App extends Component {
   constructor(props) {
+    console.log('App js constructor');
     super(props)
     this.state={
       cards: [
@@ -36,11 +37,25 @@ class App extends Component {
       showCard: true
     }
   }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('App js getDerivedStateFromProps', props)
+    return state
+  }
+  
+  componentDidMount() {
+    console.log('App js componentDidMount')
+  }
+
   toggleShowCard = () => this.setState({showCard:!this.state.showCard})
   deleteCardHandler = (cardIndex) => {
     const cards_copy = [...this.state.cards]
     cards_copy.splice(cardIndex, 1)
-    this.setState({cards:cards_copy})
+    console.log('cards_copy', cards_copy)
+    console.log('cards', this.state.cards)
+    this.setState({
+      cards:cards_copy
+    })
   }
   changedNameHandler = (event, id) => {
     //1. Which Card
@@ -50,12 +65,13 @@ class App extends Component {
     //3. Changed the name of the specific card
     cards_copy[cardIndex].name = event.target.value
     //4. Set the cards with the latest version of card copy
-    this.setState({cards:cards_copy})
+    this.setState({
+      cards:cards_copy
+    })
   }
-  // const buttonStyle = {
-  //   backgroundColor: null
-  // }
+
   render() {
+    console.log('App js render')
     const classes = ['button']
 
     if(this.state.cards.length < 3) classes.push('pink')
