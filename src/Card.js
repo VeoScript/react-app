@@ -2,6 +2,27 @@ import React, { Component } from 'react';
 import './App.css';
 
 class Card extends Component {
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('App js getDerivedStateFromProps')
+    return state
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Card js shouldComponentUpdate')
+    return false
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('Card js getSnapshotBeforeUpdate')
+    // return null
+    return { message: 'some snapshot' }
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('Card js componentDidUpdate', snapshot)
+  }
+
   render() {
     console.log('Card js rendering...')
     return (

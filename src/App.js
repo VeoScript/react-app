@@ -48,6 +48,7 @@ class App extends Component {
   }
 
   toggleShowCard = () => this.setState({showCard:!this.state.showCard})
+  
   deleteCardHandler = (cardIndex) => {
     const cards_copy = [...this.state.cards]
     cards_copy.splice(cardIndex, 1)
@@ -96,7 +97,7 @@ class App extends Component {
           <button className={classes.join(' ')} onClick={this.toggleShowCard}>Toggle Show/Hide</button>
           {cardsMarkup}
         </div>
-    </ThemeProvider>
+      </ThemeProvider>
     );
   }
 }
